@@ -1,5 +1,5 @@
 import React from "react"
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+const Layout: React.FC = ({ children }) => {
     return (
         <div>
             <h1>Background pink</h1>

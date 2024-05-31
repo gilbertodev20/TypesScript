@@ -1,17 +1,14 @@
 
+import React from 'react'
 import Layout from './Conponents/layout/Layout'
-import './App.css'
 
-function App() {
-
-
+const App: React.FC = () => {
   return (
-   <>
-   <Layout>^
-
-   <h1>teste</h1>
-   </Layout>
-   </>
+  
+    <Layout>
+      <h1>test
+      </h1>
+    </Layout>
   
   )
 }
