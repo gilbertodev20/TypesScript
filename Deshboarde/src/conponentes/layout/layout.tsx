@@ -1,16 +1,25 @@
-import React  from "react";
+import React from "react";
 
 import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./sidebar";
-const Layout: REACT.FC = ({children}) => {
-    return(
-<div>
-    <Header></Header>
-    <Sidebar></Sidebar>
-    {children}
-    <Footer></Footer>
-</div>
+
+import styles from 'Layout.module.css'
+
+interface LayoutProps {
+    children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+    return (
+        <div className={styles.conteiner}>
+            <Header />
+            <div className={styles.mais}>
+                <Sidebar />
+                <div className={styles.content}>{children}</div>
+            </div>
+           <Footer/>
+        </div>
     )
 }
 export default Layout
