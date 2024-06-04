@@ -1,6 +1,5 @@
-import React from "react";
-
 import styles from './CadastrarInformacoes.module.css'
+
 const CadastrarInformacoes = () => {
     return (
         <div className={styles.formWrapper}>
