@@ -1,6 +1,6 @@
 import styles from './CadastrarInformacoes.module.css'
 import * as Yup from 'yup';
-import { Formik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 interface FormValues {
     foto: string;
     nome: string;
@@ -21,36 +21,62 @@ const CadastrarInformacoes: React.FC = () => {
         resumo: Yup.string().required('campo obrigatótório'),
     });
 
-const onSubmit = (values: FormValues,{resetForm}: {resetForm: () => void}) => {
-    console.log(values);
-    resetForm();
-    alert('Formulário enviado com sucesso!')
-}
+    const onSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
+        console.log({ values });
+        resetForm();
+        alert('Formulário enviado com sucesso!');
+    }
+
     return (
         <div className={styles.formWrapper}>
-            <Formik initialValuesms={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-                <form action="" className={styles.form}>
+            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+                {({ touched, errors }) => (
 
-                    <h2 className={styles.title}>Informaçõe Pessoais</h2>
+                    <Form action="" className={styles.form}>
 
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="nome" className={styles.label}>Nome</label>
-                        <input type="text" name="nome" id="nome" className={styles.input}></input>
-                    </fieldset>
+                        <h2 className={styles.title}>Informaçõe Pessoais</h2>
 
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="foto" className={styles.label}>Foto</label>
-                        <input type="text" name="foto" className={styles.input}></input>
-                    </fieldset>
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="cargo" className={styles.label}>Cargo</label>
-                        <input type="text" name="cargo" id="cargo" className={styles.input}></input>
-                    </fieldset>
-                    <fieldset className={styles.formGroup}>
-                        <label htmlFor="resumo" className={styles.label}>Resumo</label>
-                        <textarea name="resumo" id="resumo" className={styles.textarea}></textarea>
-                    </fieldset>
-                </form>
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="nome" className={styles.label}>Nome</label>
+                            <Field
+                                type="text"
+                                name="nome"
+                                id="nome"
+
+                                className={`${styles.input} ${touched.nome && errors.nome && styles.error}`} />
+                            <ErrorMessage name="nome" component="div" className={styles.errorMsg} />
+                        </fieldset>
+
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="foto" className={styles.label}>Foto</label>
+                            <Field
+                                type="text"
+                                name="foto"
+                                className={`${styles.input} ${touched.foto && errors.foto && styles.error}`} />
+                            <ErrorMessage name="foto" component="div" className={styles.errorMsg} />
+                        </fieldset>
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="cargo" className={styles.label}>Cargo</label>
+                            <Field
+                                type="text"
+                                name="cargo"
+                                id="cargo"
+                                className={`${styles.input} ${touched.cargo && errors.cargo && styles.error}`} />
+                            <ErrorMessage name="cargo" component="div" className={styles.errorMsg} />
+                        </fieldset>
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="resumo" className={styles.label}>Resumo</label>
+                            <Field
+                                as="textarea"
+                                name="resumo"
+                                id="resumo"
+                                className={`${styles.textarea} ${touched.foto && errors.foto && styles.error}`} />
+                            <ErrorMessage name="resumo" component="div" className={styles.errorMsg} />
+                        </fieldset>
+
+                        <button type="submit" className={styles.button}>Salvar</button>
+                    </Form>
+                )}
             </Formik >
         </div>
     )
