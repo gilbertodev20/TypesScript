@@ -1,6 +1,7 @@
 import styles from './CadastrarInformacoes.module.css'
 import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import Input from '../../../conponentes/forms/input/input';
 interface FormValues {
     foto: string;
     nome: string;
@@ -55,6 +56,12 @@ const CadastrarInformacoes: React.FC = () => {
                                 className={`${styles.input} ${touched.foto && errors.foto && styles.error}`} />
                             <ErrorMessage name="foto" component="div" className={styles.errorMsg} />
                         </fieldset>
+                        <Input
+                        label="foto"
+                        name="foto"
+                        errors={errors.foto}
+                        touched={touched.foto}/>
+
                         <fieldset className={styles.formGroup}>
                             <label htmlFor="cargo" className={styles.label}>Cargo</label>
                             <Field
