@@ -19,6 +19,7 @@ const Input: React.FC<InputProps> = ({ label, name, type = 'text', errors, touch
                 {label}:
             </label>
             <Field
+                name={name}
                 type={type}
                 id={name}
                 className={`${styles.input} ${touched && errors && styles.error}`} />
