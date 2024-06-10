@@ -3,11 +3,13 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import Input from '../../../conponentes/forms/input/input';
 import Textarea from '../../../conponentes/forms/textarea/textarea.tsx';
+import Select from '../../../conponentes/forms/select/index.ts';
 interface FormValues {
     foto: string;
     nome: string;
     cargo: string;
     resumo: string;
+    tipo: string;
 }
 const CadastrarInformacoes: React.FC = () => {
     const initialValues: FormValues = {
@@ -15,6 +17,7 @@ const CadastrarInformacoes: React.FC = () => {
         nome: '',
         cargo: '',
         resumo: '',
+        tipo: '',
     };
     const validationSchema = Yup.object().shape({
         foto: Yup.string().required('campo obrigatório'),
@@ -56,15 +59,16 @@ const CadastrarInformacoes: React.FC = () => {
                             errors={errors.cargo}
                             touched={touched.cargo}
                         />
-                        <fieldset className={styles.formGroup}>
-                            <label htmlFor="tipo" className={styles.label}>Tipo</label>
-                            <select name="tipo" id="tipo" className={styles.input}>
-                                <option value='0' >Selecione</option>
-                                <option value='Profissional'>Profissional</option>
-                                <option value='academico'>Academico</option>
-                            </select>
-                        </fieldset>
-
+                        <Select
+                            label="Tipo de Experiência"
+                            name="tipo"
+                            options={[
+                                { value: 'profissional', label: 'Profissional' },
+                                { value: 'academico', label: 'Academico' },
+                            ]}
+                            errors={errors.tipo}
+                            touched={touched.tipo}
+                        />
                         <Textarea
                             label="Resumo"
                             name="resumo"

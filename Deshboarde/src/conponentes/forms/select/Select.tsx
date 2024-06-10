@@ -1,35 +1,36 @@
 import React from "react";
 
-import { Field, ErrorMessage } from 'formik';
+
 import styles from './Select.module.css'
-interface sectprops {
+
+interface Ioption {
+    value: string;
+    label: string;
+}
+interface Isectprops {
     label: string;
     name: string;
-    options: string[];
+    options: Ioption[];
     errors?: string;
     touched?: boolean;
 }
-const Select: React.FC<sectprops> = ({label, name, options, errors, touched}) => {
-    return(
-     <fieldset className={styles.formGroup}>
-        <label htmlFor={name} className={styles.label}>
-            {label}:
-        </label>
-        <Field
-            as="select"
-            name={name}
-            id={name}
-            className={`${styles.select} ${touched && errors && styles.error}`}
-        >
-            <option value="">Selecione</option>
-            {options.map((option) => (
-                <option key={option} value={option}>
-                    {option}
-                </option>
-            ))}
-        </Field>
-        <ErrorMessage name={name} component="div" className={styles.errorMsg}/>
-    </fieldset>
+const Select: React.FC<Isectprops> = ({ label, name, options, errors, touched }) => {
+    const errorStyle = errors && touched ? styles.error : '';
+    return (
+        <div className={styles.formGroup}>
+            <label htmlFor={name} className={styles.label}>
+                {label}:
+            </label>
+            <select name={name} id={name} className={`${styles.input} ${errorStyle}`}>
+                <option value="">Selecione uma opção</option>
+                {options.map((option) => (
+                    <option key={option.value} value={option.value}>
+                        {option.label}
+                    </option>
+                ))}
+           </select>
+           {touched && errors && <div className={styles.errorMsg}>{errors}</div>}
+         </div>
     )
 }
 
