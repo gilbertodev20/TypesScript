@@ -1,8 +1,8 @@
 import styles from './CadastrarInformacoes.module.css'
 import * as Yup from 'yup';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import Input from '../../../conponentes/forms/input/input';
-import Textarea from '../../../conponentes/forms/textarea';
+import Textarea from '../../../conponentes/forms/textarea/textarea.tsx';
 interface FormValues {
     foto: string;
     nome: string;
@@ -38,31 +38,40 @@ const CadastrarInformacoes: React.FC = () => {
 
                         <h2 className={styles.title}>Informaçõe Pessoais</h2>
 
-                        <Input 
+                        <Input
                             label="Nome"
                             name="nome"
                             errors={errors.nome}
                             touched={touched.nome}
-                             />
+                        />
                         <Input
                             label="Foto"
                             name="foto"
                             errors={errors.foto}
                             touched={touched.foto}
-                             />
+                        />
                         <Input
                             label="Cargo"
                             name="cargo"
                             errors={errors.cargo}
                             touched={touched.cargo}
-                            />
-                       <Textarea 
+                        />
+                        <fieldset className={styles.formGroup}>
+                            <label htmlFor="tipo" className={styles.label}>Tipo</label>
+                            <select name="tipo" id="tipo" className={styles.input}>
+                                <option value='0' >Selecione</option>
+                                <option value='Profissional'>Profissional</option>
+                                <option value='academico'>Academico</option>
+                            </select>
+                        </fieldset>
+
+                        <Textarea
                             label="Resumo"
                             name="resumo"
                             errors={errors.resumo}
                             touched={touched.resumo}
-                             />
-                       
+                        />
+
 
                         <button type="submit" className={styles.button}>Salvar</button>
                     </Form>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from './textarea.madule.css'
+import styles from './textarea.module.css'
 
 import { Field, ErrorMessage } from 'formik';
 
@@ -25,7 +25,7 @@ const Textarea: React.FC<TextareaProps> = ({ label, name, errors, touched }) => 
                 as="textarea"
                 name={name}
                 id={name}
-                className={`${styles.testarea} ${touched && errors && styles.error}`} />
+                className={`${styles.textarea} ${touched && errors && styles.error}`} />
             <ErrorMessage name={name} component="div" className={styles.errorMsg} />
           </fieldset>
     )
