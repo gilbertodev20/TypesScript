@@ -1,14 +1,14 @@
 {
-    "informacoes": [
-        {
-            "id": 1,
-            "foto": "",
-            "nome": "",
-            "cargo": "",
-            "resumo": ""
-
-        }
-    ],
-    "experiencias":[],
-    "portfolio":[]
+  "informacoes": [
+    {
+      "id": "1",
+      "foto": "http://www.w3.org/2000/svg",
+      "nome": "Gilberto",
+      "cargo": "ssssss",
+      "resumo": "ola",
+      "tipo": ""
+    }
+  ],
+  "experiencias": [],
+  "portfolio": []
 }
