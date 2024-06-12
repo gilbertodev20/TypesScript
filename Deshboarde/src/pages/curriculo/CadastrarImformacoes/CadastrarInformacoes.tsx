@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import styles from './CadastrarInformacoes.module.css'
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
@@ -5,10 +6,14 @@ import Input from '../../../conponentes/forms/input/input';
 import Textarea from '../../../conponentes/forms/textarea/textarea.tsx';
 import Select from '../../../conponentes/forms/select/index.ts';
 import { Informacoes, createInformacoes } from '../../../services/informacoesService.ts';
+import InformacoesCard from './InformacoesCard/InformacoesCard.tsx';
 
 const CadastrarInformacoes: React.FC = () => {
+
+     const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
+
     const initialValues: Informacoes = {
-        id: 0,
+        id: 1,
         foto: '',
         nome: '',
         cargo: '',
@@ -24,7 +29,8 @@ const CadastrarInformacoes: React.FC = () => {
 
     const onSubmit = async (values: Informacoes, { resetForm }: { resetForm: () => void }) => {
         try{
-            await createInformacoes (values)
+            await createInformacoes (values);
+            setInformacoes(values);
             console.log({ values });
             resetForm();
             alert('Formulário enviado com sucesso!');
@@ -84,6 +90,7 @@ const CadastrarInformacoes: React.FC = () => {
                     </Form>
                 )}
             </Formik >
+            <InformacoesCard informacoes={informacoes}/>
         </div>
     )
 }
