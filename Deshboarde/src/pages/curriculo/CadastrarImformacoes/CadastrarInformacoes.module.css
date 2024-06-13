@@ -1,6 +1,7 @@
 .formWrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .form {
     display: flex;
@@ -12,6 +13,13 @@
     padding: 20px;
     margin: 50px;
 }
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+} 
+
 .label {
     font-weight: bold;
     margin-bottom: 0.5rem;
@@ -53,4 +61,11 @@
 }
 .button:hover {
     background-color: #0069d9;
+}
+.deleteButton {
+    background-color: #ff3333;
+    margin: 0 auto;
+}
+.deleteButton:hover {
+    background-color: #cc3333;
 }

@@ -2,10 +2,10 @@
   "informacoes": [
     {
       "id": "1",
-      "foto": "https://i.ibb.co/0ChXc00/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "nome": "Gilberto",
-      "cargo": "programador",
-      "resumo": "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.",
+      "foto": "",
+      "nome": "",
+      "cargo": "",
+      "resumo": "",
       "tipo": ""
     }
   ],
