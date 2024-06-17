@@ -30,11 +30,11 @@ const ListarExpariencia: React.FC = () => {
         fetchExperiencia();
     }, []);
     const handeleteEdit = (experiencia: Experiencia) => {
-        navigate("/curriculo/experiencia/cadastro", { state: experiencia });
+        navigate("/curriculo/experiencia/update", { state: experiencia });
     };
-    const handeleteDelete = async (id: number) => {
+    const handeleteDelete = async (experiencia: Experiencia) => {
         try {
-            await deleteExperiencia(id)
+            await deleteExperiencia(experiencia)
             fetchExperiencia();
             alert('Experiência excluída com sucesso!');
         }
@@ -67,7 +67,7 @@ const ListarExpariencia: React.FC = () => {
                         <td>{experiencia.anoFim}</td>
                         <td>
                             <button type="button" onClick={() => handeleteEdit(experiencia)}>Editar</button>
-                            <button type="button" onClick={() => handeleteDelete(experiencia.id)}>Excluir</button>
+                            <button type="button" onClick={() => handeleteDelete(experiencia)}>Excluir</button>
                         </td>
                     </tr>
                 ))}

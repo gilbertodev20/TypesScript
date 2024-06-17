@@ -19,6 +19,6 @@ export async function updateInformacoes(informacoes: Informacoes): Promise<Infor
  }
 
 export async function deleteInformacoes(informacoes: Informacoes): Promise<Informacoes> {
-  const response = await api.delete<Informacoes>('/informacoes/1');
+  const response = await api.delete<Informacoes>(`/informacoes/${informacoes.id}`);
   return response.data
 }

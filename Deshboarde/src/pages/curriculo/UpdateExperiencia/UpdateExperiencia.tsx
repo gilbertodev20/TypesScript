@@ -4,21 +4,21 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import Input from "../../../conponentes/forms/input";
-import Textarea from "../../../conponentes/forms/textarea/textarea";
-import styles from './CadastrarExperiencia.module.css'
+import Input from "../../../conponentes/forms/input/index.tsx";
+import Textarea from "../../../conponentes/forms/textarea/textarea.tsx";
+import styles from './UpdateExperiencia.module.css'
 import Select from '../../../conponentes/forms/select/index.ts';
 
-import { Experiencia, crateOrUpdateExperiencia } from '../../../services/experienciaService';
+import { Experiencia, updateExperiencia } from '../../../services/experienciaService.ts';
 
 
-const CadastrarExperiencia: React.FC = () => {
+const UpdateExperiencia: React.FC = () => {
     const navigate = useNavigate();
     const lacation = useLocation();
     const experiencia = lacation.state as Experiencia;
 
     const initialValues: Experiencia = {
-        id: 0,
+        id: '',
         titulo: '',
         descricao: '',
         tipo: '',
@@ -34,18 +34,18 @@ const CadastrarExperiencia: React.FC = () => {
     })
 
     const onSubmit = async (values: Experiencia, { resetForm }: { resetForm: () => void }) => {
-        try { 
-           await crateOrUpdateExperiencia(values);
+        try {
             console.log({ values });
+            await updateExperiencia(values);
             resetForm();
             alert('Formulário enviado com sucesso!');
             navigate("/curriculo/experiencia/lista");
         }
         catch (error) {
-            console.error( error);
+            console.error(error);
             alert("Erro ao enviar o formulário.Tente novamente. ");
         }
-       
+
     }
     return (
         <div className={styles.formWrapper}>
@@ -56,7 +56,7 @@ const CadastrarExperiencia: React.FC = () => {
             >
                 {({ touched, errors }) => (
                     <Form className={styles.form}>
-                        <h2 className={styles.title}>Cadastrar de Experiência</h2>
+                        <h2 className={styles.title}>Atualizar Experiência: {experiencia.id}</h2>
                         <Input
                             label="Titulo"
                             name="titulo"
@@ -96,4 +96,4 @@ const CadastrarExperiencia: React.FC = () => {
 
     )
 }
-export default CadastrarExperiencia
+export default UpdateExperiencia

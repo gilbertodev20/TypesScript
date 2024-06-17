@@ -8,31 +8,6 @@
       "id": "1"
     }
   ],
-  "experiencias": [
-    {
-      "id": 0,
-      "titulo": "gilberto",
-      "descricao": "aaa",
-      "tipo": "academico",
-      "anoInicio": "2006",
-      "anoFim": "2024"
-    },
-    {
-      "id": 0,
-      "titulo": "gilberto soares",
-      "descricao": "aaa",
-      "tipo": "academico",
-      "anoInicio": "2006",
-      "anoFim": "2024"
-    },
-    {
-      "id": 0,
-      "titulo": "gilberto soares",
-      "descricao": "aaa",
-      "tipo": "academico",
-      "anoInicio": "2006",
-      "anoFim": "2024"
-    }
-  ],
+  "experiencias": [],
   "portfolio": []
 }
