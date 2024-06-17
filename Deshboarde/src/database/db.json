@@ -1,14 +1,38 @@
 {
   "informacoes": [
     {
-      "id": "1",
-      "foto": "",
-      "nome": "",
-      "cargo": "",
-      "resumo": "",
-      "tipo": ""
+      "nome": "gilberto soares",
+      "foto": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
+      "cargo": "desenvolvedor de software",
+      "resumo": "linguem de uso HMTL css javascript react",
+      "id": "1"
     }
   ],
-  "experiencias": [],
+  "experiencias": [
+    {
+      "id": 0,
+      "titulo": "gilberto",
+      "descricao": "aaa",
+      "tipo": "academico",
+      "anoInicio": "2006",
+      "anoFim": "2024"
+    },
+    {
+      "id": 0,
+      "titulo": "gilberto soares",
+      "descricao": "aaa",
+      "tipo": "academico",
+      "anoInicio": "2006",
+      "anoFim": "2024"
+    },
+    {
+      "id": 0,
+      "titulo": "gilberto soares",
+      "descricao": "aaa",
+      "tipo": "academico",
+      "anoInicio": "2006",
+      "anoFim": "2024"
+    }
+  ],
   "portfolio": []
 }

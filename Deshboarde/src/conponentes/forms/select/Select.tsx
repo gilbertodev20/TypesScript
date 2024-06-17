@@ -2,35 +2,42 @@ import React from "react";
 
 
 import styles from './Select.module.css'
+import { ErrorMessage, Field } from "formik";
 
-interface Ioption {
+interface option {
     value: string;
     label: string;
 }
-interface Isectprops {
+interface selectprops {
     label: string;
     name: string;
-    options: Ioption[];
+    options: option[];
     errors?: string;
     touched?: boolean;
 }
-const Select: React.FC<Isectprops> = ({ label, name, options, errors, touched }) => {
-    const errorStyle = errors && touched ? styles.error : '';
+const Select: React.FC<selectprops> = ({ label, name, options, errors, touched }) => {
     return (
         <div className={styles.formGroup}>
+
             <label htmlFor={name} className={styles.label}>
                 {label}:
             </label>
-            <select name={name} id={name} className={`${styles.input} ${errorStyle}`}>
+
+            <Field
+                as="select"
+                name={name}
+                id={name}
+                className={`${styles.input} ${touched && errors && styles.error}`}>
+
                 <option value="">Selecione uma opção</option>
                 {options.map((option) => (
                     <option key={option.value} value={option.value}>
                         {option.label}
                     </option>
                 ))}
-           </select>
-           {touched && errors && <div className={styles.errorMsg}>{errors}</div>}
-         </div>
+            </Field>
+            <ErrorMessage name={name} className={styles.errorMsg} component="div" />
+        </div>
     )
 }
 

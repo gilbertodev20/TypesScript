@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
 import Input from '../../../conponentes/forms/input/input';
 import Textarea from '../../../conponentes/forms/textarea/textarea.tsx';
-import Select from '../../../conponentes/forms/select/index.ts';
 import { Informacoes, updateInformacoes, getInformacoes } from '../../../services/informacoesService.ts';
 import InformacoesCard from './InformacoesCard/InformacoesCard.tsx';
 
@@ -32,7 +31,7 @@ const CadastrarInformacoes: React.FC = () => {
             setInformacoes(informacoes);
         }
         catch (error) {
-            console.error("Erro ao buscar informações:", error);
+             console.error("Erro ao buscar informações:", error);
         }
     }
     useEffect(() => {
@@ -48,16 +47,16 @@ const CadastrarInformacoes: React.FC = () => {
             alert('Formulário enviado com sucesso!');
         }
         catch (error) {
-            console.error("Erro ao enviar o formulário:", error);
+             console.error("Erro ao enviar o formulário:", error);
             alert("Erro ao enviar o formulário.Tente novamente. ");
         }
     }
-     const handleDelete = async () => {
+    const handleDelete = async () => {
         try {
             await updateInformacoes(initialValues);
             setInformacoes(initialValues);
             alert('Formulário excluído com sucesso!');
-     }
+        }
         catch (error) {
             console.error("Erro ao excluir o formulário:", error);
             alert("Erro ao excluir o formulário. Tente novamente. ");
@@ -67,7 +66,7 @@ const CadastrarInformacoes: React.FC = () => {
         <div className={styles.formWrapper}>
             <Formik
                 initialValues={informacoes}
-                enableReiniciar={true}
+                 enableReiniciar={true}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}>
                 {({ touched, errors }) => (
@@ -94,16 +93,6 @@ const CadastrarInformacoes: React.FC = () => {
                             errors={errors.cargo}
                             touched={touched.cargo}
                         />
-                        <Select
-                            label="Tipo de Experiência"
-                            name="tipo"
-                            options={[
-                                { value: 'profissional', label: 'Profissional' },
-                                { value: 'academico', label: 'Academico' },
-                            ]}
-                            errors={errors.tipo}
-                            touched={touched.tipo}
-                        />
                         <Textarea
                             label="Resumo"
                             name="resumo"
@@ -115,20 +104,20 @@ const CadastrarInformacoes: React.FC = () => {
                         <button type="submit" className={styles.button}>Salvar</button>
                     </Form>
                 )}
-            </Formik>
+             </Formik>
             {informacoes &&
-            object.entries(informacoes).some(
-                ([key, value]) => key !== "id" &&
-            
+                Object.entries(informacoes).some(
+                    ([key, value]) => key !== "id" && value.trim() !== "") &&(
+                        <div className={styles.cardContainer}>
+                            <InformacoesCard informacoes={informacoes} /> 
 
-            <div className={styles.cardContainer}>
-                <InformacoesCard informacoes={informacoes} />
-                <button type="button"
-                     onClick={handleDelete}
-                    className={`${styles.button} ${styles.deleteButton}`}>
-                    Delete
-                </button>
-            </div>
+                            <button type="button"
+                                onClick={handleDelete}
+                                className={`${styles.button} ${styles.deleteButton}`}>
+                                Deleter
+                            </button>
+                        </div>
+                )}  
         </div>
     )
 }

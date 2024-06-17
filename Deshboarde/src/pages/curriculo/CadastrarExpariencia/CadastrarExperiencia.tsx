@@ -1,20 +1,24 @@
 import React from "react";
 
-import styles from './CadastrarExperiencia.module.css'
 import * as Yup from 'yup';
 import { Formik, Form } from 'formik';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import Input from "../../../conponentes/forms/input";
 import Textarea from "../../../conponentes/forms/textarea/textarea";
-interface FormValues {
-    titulo: string;
-    descricao: string;
-    tipo: string;
-    anoInicio: string;
-    anoFim: string;
-}
+import styles from './CadastrarExperiencia.module.css'
+import Select from '../../../conponentes/forms/select/index.ts';
+
+import { Experiencia, crateOrUpdateExperiencia } from '../../../services/experienciaService';
+
 
 const CadastrarExperiencia: React.FC = () => {
-    const initialValues: FormValues = {
+    const navigate = useNavigate();
+    const lacation = useLocation();
+    const experiencia = lacation.state as Experiencia;
+
+    const initialValues: Experiencia = {
+        id: 0,
         titulo: '',
         descricao: '',
         tipo: '',
@@ -29,15 +33,24 @@ const CadastrarExperiencia: React.FC = () => {
         anoFim: Yup.number().required('campo obrigatório').typeError("Um número é obrigatório"),
     })
 
-    const onSubmit = (values: FormValues, { resetForm }: { resetForm: () => void }) => {
-        console.log({ values });
-        resetForm();
-        alert('Formulário enviado com sucesso!');
+    const onSubmit = async (values: Experiencia, { resetForm }: { resetForm: () => void }) => {
+        try { 
+           await crateOrUpdateExperiencia(values);
+            console.log({ values });
+            resetForm();
+            alert('Formulário enviado com sucesso!');
+            navigate("/curriculo/experiencia/lista");
+        }
+        catch (error) {
+            console.error( error);
+            alert("Erro ao enviar o formulário.Tente novamente. ");
+        }
+       
     }
     return (
         <div className={styles.formWrapper}>
             <Formik
-                initialValues={initialValues}
+                initialValues={experiencia || initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
             >
@@ -59,13 +72,23 @@ const CadastrarExperiencia: React.FC = () => {
                             name="anoFim"
                             errors={errors.anoFim}
                             touched={touched.anoFim} />
+                        <Select
+                            label="Tipo de Experiência"
+                            name="tipo"
+                            options={[
+                                { value: 'profissional', label: 'Profissional' },
+                                { value: 'academico', label: 'Academico' },
+                            ]}
+                            errors={errors.tipo}
+                            touched={touched.tipo}
+                        />
                         <Textarea
                             label="Descricão"
                             name="descricao"
                             errors={errors.descricao}
                             touched={touched.descricao} />
 
-                        <button type="submit" className={styles.button}>Cadastrar</button>
+                        <button type="submit" className={styles.button}>Salvar</button>
                     </Form>
                 )}
             </Formik>

@@ -18,6 +18,7 @@ const InformacoesCard: React.FC<InformacoesCardProps> = ({ informacoes }) => {
       <h3 className={styles.nome}>{nome}</h3>
       <p className={styles.cargo}>{cargo}</p>
       <p className={styles.resumo}>{resumo}</p>
+      <p className={styles.tipo}>{tipo}</p>
       </div>
       </div>
     );
