@@ -8,6 +8,21 @@
       "id": "1"
     }
   ],
-  "experiencias": [],
-  "portfolio": []
+  "experiencias": [
+    {
+      "id": "0",
+      "titulo": "gilberto soares da silva neto",
+      "descricao": "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+      "tipo": "profissional",
+      "anoInicio": "2020",
+      "anoFim": "2030"
+    }
+  ],
+  "portfolio": [ 
+     {
+    "link": "'https://academy.comeialabs.com.br/'",
+    "Image": "'https://picsum.photos/300/200?random=1'",
+    "title": "'Portfolio 1'"
+}
+]
 }

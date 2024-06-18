@@ -32,6 +32,8 @@ const ListarExpariencia: React.FC = () => {
     const handeleteEdit = (experiencia: Experiencia) => {
         navigate("/curriculo/experiencia/update", { state: experiencia });
     };
+
+
     const handeleteDelete = async (experiencia: Experiencia) => {
         try {
             await deleteExperiencia(experiencia)
@@ -45,6 +47,7 @@ const ListarExpariencia: React.FC = () => {
     };
 
 
+    
     return (
         <table className={styles.table}>
             <thead>
