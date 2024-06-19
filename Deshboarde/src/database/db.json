@@ -1,10 +1,10 @@
 {
   "informacoes": [
     {
-      "nome": "gilberto soares",
-      "foto": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "cargo": "desenvolvedor de software",
-      "resumo": "linguem de uso HMTL css javascript react",
+      "nome": "giba",
+      "foto": "https://i.ibb.co/0ChXc00/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
+      "cargo": "PROGRAMADOR",
+      "resumo": "4rtre",
       "id": "1"
     }
   ],
@@ -18,11 +18,12 @@
       "anoFim": "2030"
     }
   ],
-  "portfolio": [ 
-     {
-    "link": "'https://academy.comeialabs.com.br/'",
-    "Image": "'https://picsum.photos/300/200?random=1'",
-    "title": "'Portfolio 1'"
-}
-]
+  "portfolio": [
+    {
+      "link": "'https://academy.comeialabs.com.br/'",
+      "Image": "'https://picsum.photos/300/200?random=1'",
+      "title": "'Portfolio 1'",
+      "id": "f0b8"
+    }
+  ]
 }

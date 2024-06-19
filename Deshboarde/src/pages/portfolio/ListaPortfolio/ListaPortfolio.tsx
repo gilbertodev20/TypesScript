@@ -28,18 +28,17 @@ const ListaPortfolio: React.FC = () => {
 
     }
 
-}
-const handeleteDelete = async (portfolio: Portfolio) => {
-    try {
-        await deletePortfolio(ex)
-        fetchExperiencia();
-        alert('Experiência excluída com sucesso!');
-    }
-    catch (error) {
-        console.log('Erro ao excluir:', error);
-        alert("ocorreu um erro ao excluir a experiência. Tente novamente. ");
-    }
-};
+    const handeleteDelete = async (portfolio: Portfolio) => {
+        try {
+            await deletePortfolio(portfolio)
+            fetchPortfolio();
+            alert('Experiência excluída com sucesso!');
+        }
+        catch (error) {
+            console.log('Erro ao excluir:', error);
+            alert("ocorreu um erro ao excluir a experiência. Tente novamente. ");
+        }
+    };
 
     return (
         <table className={styles.table}>
@@ -52,14 +51,14 @@ const handeleteDelete = async (portfolio: Portfolio) => {
                 </tr>
             </thead>
             <tbody>
-                {portfolio.map((itemPortfolio, index) => (
+                {portfolio.map((portfolio, index) => (
                     <tr key={index}>
-                        <td>{itemPortfolio.title}</td>
-                        <td>< img src={itemPortfolio.Image} alt={itemPortfolio.title} className={styles.Image} /></td>
-                        <td><a href={itemPortfolio.link} target="_blank" rel="noreferrer">{itemPortfolio.link}</a></td>
+                        <td>{portfolio.title}</td>
+                        <td>< img src={portfolio.image} alt={portfolio.title} className={styles.Image} /></td>
+                        <td><a href={portfolio.link} target="_blank" rel="noreferrer">{portfolio.link}</a></td>
                         <td>
-                            <button onClick={() => handleEdit(index)}>Editar</button>
-                            <button onClick={() => handleDelete(index)}>Excluir</button>
+                            <button onClick={() => handleEdit(portfolio)}>Editar</button>
+                            <button onClick={() => handeleteDelete(portfolio)}>Excluir</button>
                         </td>
                     </tr>
 
@@ -68,5 +67,6 @@ const handeleteDelete = async (portfolio: Portfolio) => {
         </table>
     )
 }
+
 
 export default ListaPortfolio
