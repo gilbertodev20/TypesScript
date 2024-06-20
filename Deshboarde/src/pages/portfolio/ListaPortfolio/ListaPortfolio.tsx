@@ -24,10 +24,24 @@ const ListaPortfolio: React.FC = () => {
     React.useEffect(() => {
         fetchPortfolio();
     }, []);
-    const handleEdit = async (portfolio: Portfolio) => {
+    const handleEdit = (portfolio: Portfolio) => {
+        navigate("/portfolio/cadastro", { state: portfolio });
 
     }
 
+<<<<<<< HEAD
+const handleteDelete = async (portfolio: Portfolio) => {
+    try {
+        await deletePortfolio(portfolio)
+    fetchPortfolio();
+alert('Experiência excluída com sucesso!');
+}
+catch (error) {
+    console.log('Erro ao excluir:', error);
+alert("ocorreu um erro ao excluir a experiência. Tente novamente. ");
+}
+};
+=======
     const handeleteDelete = async (portfolio: Portfolio) => {
         try {
             await deletePortfolio(portfolio)
@@ -39,6 +53,7 @@ const ListaPortfolio: React.FC = () => {
             alert("ocorreu um erro ao excluir a experiência. Tente novamente. ");
         }
     };
+>>>>>>> 0eb5960ca45e18416e1534791447d1109222055c
 
     return (
         <table className={styles.table}>
@@ -58,7 +73,11 @@ const ListaPortfolio: React.FC = () => {
                         <td><a href={portfolio.link} target="_blank" rel="noreferrer">{portfolio.link}</a></td>
                         <td>
                             <button onClick={() => handleEdit(portfolio)}>Editar</button>
+<<<<<<< HEAD
+                            <button onClick={() => handleteDelete(portfolio)}>Excluir</button>
+=======
                             <button onClick={() => handeleteDelete(portfolio)}>Excluir</button>
+>>>>>>> 0eb5960ca45e18416e1534791447d1109222055c
                         </td>
                     </tr>
 
