@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Outlet, Route } from "react-router-dom";
 import Layout from '../conponentes/layout/layout'
 
 import Home from '../pages/home/Home' 
@@ -14,13 +14,8 @@ import UpdateExperiencia from '../pages/curriculo/UpdateExperiencia/UpdateExperi
 const AppRoutes: React.FC = () => {
     return (
         <Layout>
-            <Route path='/' element={<Home />} />
-            <Route path='/curriculo/informacoes/cadastro' element={<CadastrarInformacoes />} />
-            <Route path='/curriculo/experiencia/lista' element={<ListaExpariencia />} />
-            <Route path='/curriculo/experiencia/cadastro' element={<CadastrarExpariencia />} />
-            <Route path='/curriculo/experiencia/update' element={<UpdateExperiencia />} />
-            <Route path='/portfolio/lista' element={<ListaPortfolio />} />
-            <Route path='/portfolio/cadastro' element={<CadastrarPortfolio />} />
+            <Outlet />
+           
         </Layout>
     )
 }

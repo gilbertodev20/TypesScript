@@ -1,18 +1,11 @@
 {
   "informacoes": [
     {
-<<<<<<< HEAD
+      "id": "0",
       "nome": "Gilberto Soares da Silva Neto",
       "foto": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
       "cargo": "Programador",
-      "resumo": "desenvolvedor de software",
-=======
-      "nome": "giba",
-      "foto": "https://i.ibb.co/0ChXc00/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "cargo": "PROGRAMADOR",
-      "resumo": "4rtre",
->>>>>>> 0eb5960ca45e18416e1534791447d1109222055c
-      "id": "1"
+      "resumo": "desenvolvedor de software"
     }
   ],
   "experiencias": [
@@ -23,19 +16,10 @@
       "tipo": "profissional",
       "anoInicio": "2020",
       "anoFim": "2030"
-    },
-    {
-      "id": "1",
-      "titulo": "Resumo",
-      "descricao": "aa",
-      "tipo": "academico",
-      "anoInicio": "2006",
-      "anoFim": "2024"
     }
   ],
   "portfolio": [
     {
-<<<<<<< HEAD
       "id": "0",
       "link": "yyyy",
       "image": "ttyty",
@@ -94,12 +78,6 @@
       "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
       "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
       "title": "gilberto soares"
-=======
-      "link": "'https://academy.comeialabs.com.br/'",
-      "Image": "'https://picsum.photos/300/200?random=1'",
-      "title": "'Portfolio 1'",
-      "id": "f0b8"
->>>>>>> 0eb5960ca45e18416e1534791447d1109222055c
     }
   ]
 }
