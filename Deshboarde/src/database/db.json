@@ -1,4 +1,11 @@
 {
+  "usuario": [
+    {
+      "id": "0",
+      "email": "giilneto93@gmail.com",
+      "password": "123456"
+    }
+  ],
   "informacoes": [
     {
       "id": "0",
