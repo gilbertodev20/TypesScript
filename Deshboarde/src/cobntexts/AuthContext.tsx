@@ -15,8 +15,8 @@ const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
 export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider: React.FC = ({ children }) => {
-    const [usuario, setUsuario] = useState({} as Usuario);
     const [authenticated, setAuthenticated] = useState(false);
+    const [usuario, setUsuario] = useState({} as Usuario);
     const [isLoading, setIsLoading] = useState(true);
 
   
@@ -49,7 +49,7 @@ export const AuthProvider: React.FC = ({ children }) => {
                 authenticated,
                 usuario,
                 login,
-                 lagout,
+                 logout,
                 isLoading
             }}
         >

@@ -9,7 +9,8 @@ import styles from "./Login.module.css";
 
 
 import Input from "../../conponentes/forms/input/input";
-import { login } from "../../services/authService";
+import { login as loginService } from "../../services/authService";
+import { useAuth } from "../../cobntexts/AuthContext";
 
 interface LoginValues {
     email: string;
@@ -30,9 +31,11 @@ const validationSchema = Yup.object().shape({
 })
 const Login = () => {
          const navigate = useNavigate();
+        const { login } = useAuth();
     const onSubmit = async (values: LoginValues) => {
         try {
-            await login(values.email, values.password)
+           const usuario = await loginService(values.email, values.password)
+            login(usuario)
             navigate("/")
             console.log(values)
         } catch (error) {

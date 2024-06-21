@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from '../conponentes/layout/layout'
 
 import Home from '../pages/home/Home'
@@ -10,8 +10,19 @@ import ListaExpariencia from '../pages/curriculo/ListaExperiencia/ListaExperienc
 import CadastrarPortfolio from '../pages/portfolio/CadastrarPortfolio'
 
 import UpdateExperiencia from '../pages/curriculo/UpdateExperiencia/UpdateExperiencia'
+import { useAuth } from "../cobntexts/AuthContext";
 
 const AppRoutes: React.FC = () => {
+    const {authenticated, isLoading} = useAuth();
+    if (isLoading) {
+        return <p>Carregando...</p>
+    }
+
+    if(!authenticated){
+        return <Navigate to="/login" />
+    }
+
+
     return (
         <Layout>
             <Routes>
