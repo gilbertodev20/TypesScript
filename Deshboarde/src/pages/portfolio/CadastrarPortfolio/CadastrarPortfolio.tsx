@@ -1,14 +1,16 @@
 import React from "react";
 
 import * as Yup from 'yup';
-import { Formik, Form } from 'formik';
+
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import styles from './CadastrarPortfolio.module.css'
 import Input from "../../../conponentes/forms/input";
 
-import { Portfolio, createPortfolio } from '../../../services/portfolioService';
-
+import { Portfolio, createOrUpdatePortfolio } from '../../../services/portfolioService';
+import Button from "../../../conponentes/common/Button";
+import Title from "../../../conponentes/common/Title/Title";
+import Form from "../../../conponentes/forms/Form";
 
 
 const CadastrarPortfolio: React.FC = () => {
@@ -17,19 +19,21 @@ const CadastrarPortfolio: React.FC = () => {
     const portfolio = lacation.state as Portfolio;
 
     const initialValues: Portfolio = {
-        id: 0,
         link: "",
         image: "",
         title: "",
     }
     const validationSchema = Yup.object().shape({
-        link: Yup.string().required("campo obrigatório"),
-        image: Yup.string().required("campo obrigatório"),
-        title: Yup.string().required("campo obrigatório")
+        link: Yup.string()
+        .required("campo obrigatório"),
+        image: Yup.string()
+        .required("campo obrigatório"),
+        title: Yup.string()
+        .required("campo obrigatório")
     })
     const onSubmit = async (values: Portfolio, { resetForm }: { resetForm: () => void }) => {
         try {
-            await createPortfolio(values);
+            await createOrUpdatePortfolio(values);
             resetForm();
             alert('Formulário enviado com sucesso!');
             navigate("/portfolio/lista");
@@ -37,21 +41,17 @@ const CadastrarPortfolio: React.FC = () => {
             console.error(error);
             alert("Erro ao enviar o formulário.Tente novamente. ");
         }
-
-
-        // console.log({ values })
-        // resetForm()
-        // alert("Formulário enviado com sucesso!")
     }
     return (
         <div className={styles.formWrapper}>
-            <Formik
+            <Form
                 initialValues={portfolio || initialValues}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}>
                 {({ touched, errors }) => (
-                    <Form className={styles.form}>
-                        <h2 className={styles.title}>Cadastrar de Portfolio</h2>
+                    <>
+                        <Title>Cadastrar de Portfolio</Title>
+
                         <Input
                             label="Link"
                             name="link"
@@ -67,11 +67,11 @@ const CadastrarPortfolio: React.FC = () => {
                             name="title"
                             errors={errors.title}
                             touched={touched.title} />
-                        <button type="submit" className={styles.button}>Enviar</button>
-                    </Form>
+                        <Button type="submit">Enviar</Button>
+                    </>
                 )}
 
-            </Formik>
+            </Form>
         </div>
     )
 }

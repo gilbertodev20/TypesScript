@@ -9,8 +9,8 @@ import ListaPortfolio from '../pages/portfolio/ListaPortfolio'
 import ListaExpariencia from '../pages/curriculo/ListaExperiencia/ListaExperiencia'
 import CadastrarPortfolio from '../pages/portfolio/CadastrarPortfolio'
 
-import UpdateExperiencia from '../pages/curriculo/UpdateExperiencia/UpdateExperiencia'
-import { useAuth } from "../cobntexts/AuthContext";
+
+import { useAuth } from "../contexts/AuthContext";
 
 const AppRoutes: React.FC = () => {
     const {authenticated, isLoading} = useAuth();
@@ -30,7 +30,6 @@ const AppRoutes: React.FC = () => {
                 <Route path='/curriculo/informacoes/cadastro' element={<CadastrarInformacoes />} />
                 <Route path='/curriculo/experiencia/lista' element={<ListaExpariencia />} />
                 <Route path='/curriculo/experiencia/cadastro' element={<CadastrarExpariencia />} />
-                <Route path='/curriculo/experiencia/update' element={<UpdateExperiencia />} />
                 <Route path='/portfolio/lista' element={<ListaPortfolio />} />
                 <Route path='/portfolio/cadastro' element={<CadastrarPortfolio />} />
             </Routes>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as Yup from 'yup';
-import { Formik, Form } from 'formik';
+// import { Formik, Form } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Input from "../../../conponentes/forms/input/index.tsx";
@@ -9,16 +9,17 @@ import Textarea from "../../../conponentes/forms/textarea/textarea.tsx";
 import styles from './CadastrarExperiencia.module.css'
 import Select from '../../../conponentes/forms/select/index.ts';
 
-import { Experiencia, createExperiencia } from '../../../services/experienciaService.ts';
+import { Experiencia, createOrUpdateExperiencia } from '../../../services/experienciaService.ts';
 
-
+import Form from "../../../conponentes/forms/Form";
+import Button from "../../../conponentes/common/Button/";
+import Title from "../../../conponentes/common/Title/Title.tsx";
 const CadastrarExperiencia: React.FC = () => {
     const navigate = useNavigate();
     const lacation = useLocation();
     const experiencia = lacation.state as Experiencia;
 
     const initialValues: Experiencia = {
-        id: '',
         titulo: '',
         descricao: '',
         tipo: '',
@@ -35,8 +36,7 @@ const CadastrarExperiencia: React.FC = () => {
 
     const onSubmit = async (values: Experiencia, { resetForm }: { resetForm: () => void }) => {
         try {
-            console.log({ values });
-            await createExperiencia(values);
+            await createOrUpdateExperiencia(values);
             resetForm();
             alert('Formulário enviado com sucesso!');
             navigate("/curriculo/experiencia/lista");
@@ -48,51 +48,51 @@ const CadastrarExperiencia: React.FC = () => {
 
     }
     return (
-        <div className={styles.formWrapper}>
-            <Formik
-                initialValues={experiencia || initialValues}
-                validationSchema={validationSchema}
-                onSubmit={onSubmit}
-            >
-                {({ touched, errors }) => (
-                    <Form className={styles.form}>
-                        <h2 className={styles.title}>Cadastrar de Experiência</h2>
-                        <Input
-                            label="Titulo"
-                            name="titulo"
-                            errors={errors.titulo}
-                            touched={touched.titulo} />
-                        <Input
-                            label="Ano de Início"
-                            name="anoInicio"
-                            errors={errors.anoInicio}
-                            touched={touched.anoInicio} />
-                        <Input
-                            label="Ano de Fim"
-                            name="anoFim"
-                            errors={errors.anoFim}
-                            touched={touched.anoFim} />
-                        <Select
-                            label="Tipo de Experiência"
-                            name="tipo"
-                            options={[
-                                { value: 'profissional', label: 'Profissional' },
-                                { value: 'academico', label: 'Academico' },
-                            ]}
-                            errors={errors.tipo}
-                            touched={touched.tipo}
-                        />
-                        <Textarea
-                            label="Descricão"
-                            name="descricao"
-                            errors={errors.descricao}
-                            touched={touched.descricao} />
 
-                        <button type="submit" className={styles.button}>Salvar</button>
-                    </Form>
-                )}
-            </Formik>
-        </div>
+        <Form
+            initialValues={experiencia || initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+        >
+            {({ touched, errors }) => (
+                <>
+                    <Title>Cadastrar de Experiência</Title>
+                    <Input
+                        label="Titulo"
+                        name="titulo"
+                        errors={errors.titulo}
+                        touched={touched.titulo} />
+                    <Input
+                        label="Ano de Início"
+                        name="anoInicio"
+                        errors={errors.anoInicio}
+                        touched={touched.anoInicio} />
+                    <Input
+                        label="Ano de Fim"
+                        name="anoFim"
+                        errors={errors.anoFim}
+                        touched={touched.anoFim} />
+                    <Select
+                        label="Tipo de Experiência"
+                        name="tipo"
+                        options={[
+                            { value: 'profissional', label: 'Profissional' },
+                            { value: 'academico', label: 'Academico' },
+                        ]}
+                        errors={errors.tipo}
+                        touched={touched.tipo}
+                    />
+                    <Textarea
+                        label="Descricão"
+                        name="descricao"
+                        errors={errors.descricao}
+                        touched={touched.descricao} />
+
+                    <Button type="submit" >Salvar</Button>
+                </>
+            )}
+        </Form>
+
 
     )
 }

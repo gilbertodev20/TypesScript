@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './pages/login/Login'
 import './App.css'
 import  AuthRoutes  from './routes/AuthRoutes'
-import { AuthProvider } from './cobntexts/AuthContext'
+import { AuthProvider } from './contexts/AuthContext'
 
 
 const App: React.FC = () => {

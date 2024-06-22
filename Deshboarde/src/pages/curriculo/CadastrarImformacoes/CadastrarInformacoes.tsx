@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CadastrarInformacoes.module.css'
 import * as Yup from 'yup';
-import { Formik, Form } from 'formik';
+import { Informacoes, updateInformacoes, getInformacoes } from '../../../services/informacoesService.ts';
+
+
 import Input from '../../../conponentes/forms/input/input';
 import Textarea from '../../../conponentes/forms/textarea/textarea.tsx';
-import { Informacoes, updateInformacoes, getInformacoes } from '../../../services/informacoesService.ts';
 import InformacoesCard from './InformacoesCard/InformacoesCard.tsx';
-
+import Button from '../../../conponentes/common/Button/Button.tsx';
+import Title from '../../../conponentes/common/Title/Title.tsx';
+import Form from '../../../conponentes/forms/Form/';
 const CadastrarInformacoes: React.FC = () => {
 
     const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
@@ -64,16 +67,17 @@ const CadastrarInformacoes: React.FC = () => {
     }
     return (
         <div className={styles.formWrapper}>
-            <Formik
-                initialValues={informacoes}
-                 enableReiniciar={true}
+            <Form
+                initialValues={initialValues}
+                enableReiniciar={true}
                 validationSchema={validationSchema}
-                onSubmit={onSubmit}>
+                onSubmit={onSubmit}> 
+
                 {({ touched, errors }) => (
 
-                    <Form action="" className={styles.form}>
+                     <>
 
-                        <h2 className={styles.title}>Informaçõe Pessoais</h2>
+                        <Title>Informações Pessoais</Title>
 
                         <Input
                             label="Nome"
@@ -100,22 +104,17 @@ const CadastrarInformacoes: React.FC = () => {
                             touched={touched.resumo}
                         />
 
-
-                        <button type="submit" className={styles.button}>Salvar</button>
-                    </Form>
+                        <Button type='submit'>Salvar</Button>
+                     </>
                 )}
-             </Formik>
+             </Form>
             {informacoes &&
                 Object.entries(informacoes).some(
                     ([key, value]) => key !== "id" && value.trim() !== "") &&(
                         <div className={styles.cardContainer}>
                             <InformacoesCard informacoes={informacoes} /> 
 
-                            <button type="button"
-                                onClick={handleDelete}
-                                className={`${styles.button} ${styles.deleteButton}`}>
-                                Deleter
-                            </button>
+                            <Button onClick={handleDelete} red >Deletar</Button>
                         </div>
                 )}  
         </div>

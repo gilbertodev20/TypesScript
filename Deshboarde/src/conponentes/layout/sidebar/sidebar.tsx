@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 
 import styles from './sidebar.module.css'
-import { useAuth } from "../../../cobntexts/AuthContext";
+import { useAuth } from "../../../contexts/AuthContext";
 
 const Sidebar = () => {
     const { logout } = useAuth();

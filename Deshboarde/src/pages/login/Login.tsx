@@ -1,7 +1,6 @@
 
-import React from "react";
 
-import { Form, Formik } from "formik";
+// import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -10,7 +9,11 @@ import styles from "./Login.module.css";
 
 import Input from "../../conponentes/forms/input/input";
 import { login as loginService } from "../../services/authService";
-import { useAuth } from "../../cobntexts/AuthContext";
+import { useAuth } from "../../contexts/AuthContext";
+
+import Form from "../../conponentes/forms/Form"
+import Button from "../../conponentes/common/Button";
+import Title from "../../conponentes/common/Title/Title";
 
 interface LoginValues {
     email: string;
@@ -30,11 +33,11 @@ const validationSchema = Yup.object().shape({
 
 })
 const Login = () => {
-         const navigate = useNavigate();
-        const { login } = useAuth();
+    const navigate = useNavigate();
+    const { login } = useAuth();
     const onSubmit = async (values: LoginValues) => {
         try {
-           const usuario = await loginService(values.email, values.password)
+            const usuario = await loginService(values.email, values.password)
             login(usuario)
             navigate("/")
             console.log(values)
@@ -43,38 +46,42 @@ const Login = () => {
             alert("Email ou senha inválidos")
         }
     }
-   
-        return (
-            <div className={styles.loginWrapper}>
-                <div className={styles.formWrapper}>
-                    <Formik
-                        initialValues={initialValues}
-                        validationSchema={validationSchema}
-                        onSubmit={onSubmit}>
-                        {({ errors, touched }) => (
-                            <Form className={styles.form}>
-                                <h1 className={styles.title}>MEU SITE PESSOAL</h1>
-                                <Input
-                                    label="Email"
-                                    name="email"
-                                    type="email"
-                                    errors={errors.email}
-                                    touched={touched.email}
-                                />
-                                <Input
-                                    label="Password"
-                                    name="password"
-                                    type="password"
-                                    errors={errors.password}
-                                    touched={touched.password}
-                                />
-                                <button type="submit" className={styles.button}>Login</button>
-                            </Form>
-                        )}
-                    </Formik>
-                </div>
+
+    return (
+        <div className={styles.loginWrapper}>
+            <div >
+                <Form
+
+                    initialValues={initialValues}
+                    validationSchema={validationSchema}
+                    onSubmit={onSubmit}>
+
+                    {({ errors, touched }) => (
+                        <>
+
+                            <Title>MEU SITE PESSOAL</Title>
+                            <Input
+                                label="Email"
+                                name="email"
+                                type="email"
+                                errors={errors.email}
+                                touched={touched.email}
+                            />
+                            <Input
+                                label="Password"
+                                name="password"
+                                type="password"
+                                errors={errors.password}
+                                touched={touched.password}
+                            />
+                            <Button type="submit">Login</Button>
+                        </>
+                    )}
+                </Form>
+
             </div>
-        )
-    
+        </div>
+    )
+
 }
 export default Login

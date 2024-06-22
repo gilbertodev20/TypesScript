@@ -1,11 +1,11 @@
-.input {
+ .input {
     width: 100%;
     padding: 0.5rem;
     border: none;
     background-color: #ffffff;
     margin-top: 5px;
     border-radius: 7px;
-}
+} 
 .formGroup {
     display: flex;
     flex-direction: column;

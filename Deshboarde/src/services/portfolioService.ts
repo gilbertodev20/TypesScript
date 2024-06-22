@@ -1,32 +1,37 @@
 import api from "./api";
 
 export interface Portfolio {
-    id: number;
+    id?: number;
     image: string;
     link: string;
     title: string;
 
 }
 
-export const createPortfolio = async (portfolio: Portfolio) => {
-    const quantPortfolios = (await getPortfolio()).length;
-    portfolio.id = quantPortfolios;
-    const response = await api.post('/portfolios/', portfolio);
+export const createPortfolio = async (portfolio: Portfolio): Promise<Portfolio> => {
+    const response = await api.post<Portfolio>('/portfolio/', portfolio);
     return response.data;
 }
-export const updatePortfolio = async (portfolio: Portfolio) => {
-    const response = await api.put<Portfolio>(`/portfolios/${portfolio.id}`, portfolio);
+export const getPortfolio = async (): Promise<Portfolio[]> => {
+    const response = await api.get<Portfolio[]>('/portfolio/');
     return response.data;
 }
-export const getPortfolio = async () => {
-    const response = await api.get<Portfolio[]>('/portfolios/');
+export const deletePortfolio = async (id: number | undefined): Promise<Portfolio> => { 
+    const response = await api.delete<Portfolio>(`/portfolio/${id}`);
     return response.data;
 }
-export const getPortfolioById = async (id: number) => {
-    const response = await api.get<Portfolio>(`/portfolios/${id}`);
+export const updatePortfolio = async (portfolio: Portfolio) : Promise<Portfolio> =>  {
+    const response = await api.put<Portfolio>(`/portfolio/${portfolio.id}`, portfolio);
     return response.data;
 }
-export const deletePortfolio = async (portfolio: Portfolio) => {
-    const response = await api.delete<Portfolio>(`/Portfolios/${portfolio.id}`);
+export const getPortfolioById = async (id: number): Promise<Portfolio> => {
+    const response = await api.get<Portfolio>(`/portfolio/${id}`);
     return response.data;
+}
+export const createOrUpdatePortfolio = async (portfolio: Portfolio): Promise<Portfolio> => {
+    if (!portfolio.id) {
+        return createPortfolio(portfolio);
+    } else {
+        return updatePortfolio(portfolio);
+    }
 }

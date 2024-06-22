@@ -8,83 +8,30 @@
   ],
   "informacoes": [
     {
-      "id": "0",
-      "nome": "Gilberto Soares da Silva Neto",
-      "foto": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "cargo": "Programador",
-      "resumo": "desenvolvedor de software"
+      "id": "1",
+      "foto": "qqqq",
+      "nome": "qqqqqq",
+      "cargo": "qqq",
+      "resumo": "qqq",
+      "tipo": ""
     }
   ],
   "experiencias": [
     {
-      "id": "0",
-      "titulo": "gilberto soares da silva neto",
-      "descricao": "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-      "tipo": "profissional",
-      "anoInicio": "2020",
-      "anoFim": "2030"
+      "id": "906f",
+      "titulo": "gilberto soares da silva netosssssssssssssssssssssssssssssssssweqwewe",
+      "descricao": "q",
+      "tipo": "academico",
+      "anoInicio": "2006",
+      "anoFim": "2024"
     }
   ],
   "portfolio": [
     {
-      "id": "0",
-      "link": "yyyy",
-      "image": "ttyty",
-      "title": "tyty"
-    },
-    {
-      "id": "1",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto"
-    },
-    {
-      "id": "2",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto"
-    },
-    {
-      "id": "3",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto"
-    },
-    {
-      "id": "4",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto"
-    },
-    {
-      "id": "5",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto"
-    },
-    {
-      "id": "6",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto"
-    },
-    {
-      "id": "7",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto soares"
-    },
-    {
-      "id": "8",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto soares"
-    },
-    {
-      "id": "9",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "gilberto soares"
+      "id": "2399",
+      "link": "22222222222222244444444444434343",
+      "image": "22222222222222",
+      "title": "22222222222222"
     }
   ]
 }
