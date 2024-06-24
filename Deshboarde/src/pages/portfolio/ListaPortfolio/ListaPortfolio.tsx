@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import styles from './ListaPortfolio.module.css'
+
 import { deletePortfolio, getPortfolio, Portfolio } from "../../../services/portfolioService";
 import Table from "../../../conponentes/common/Table";
 import { Column } from "../../../conponentes/common/Table/Taable";

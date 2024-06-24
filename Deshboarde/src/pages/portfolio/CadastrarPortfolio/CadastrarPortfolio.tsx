@@ -24,6 +24,7 @@ const CadastrarPortfolio: React.FC = () => {
         title: "",
     }
     const validationSchema = Yup.object().shape({
+        id: Yup.number().required('campo obrigatório'),
         link: Yup.string()
         .required("campo obrigatório"),
         image: Yup.string()

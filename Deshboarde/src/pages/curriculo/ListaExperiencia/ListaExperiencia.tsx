@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import styles from "./ListaExperiencia.module.css"
+
 
 import { Experiencia, getExperiencias, deleteExperiencia } from "../../../services/experienciaService";
 import Table, { Column } from "../../../conponentes/common/Table/Taable";
