@@ -1,6 +1,6 @@
+import React from "react";
 
 
-// import { Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -32,7 +32,7 @@ const validationSchema = Yup.object().shape({
         .required("Senha obrigatória")
 
 })
-const Login = () => {
+const Login: React.FC = () => {
     const navigate = useNavigate();
     const { login } = useAuth();
     const onSubmit = async (values: LoginValues) => {

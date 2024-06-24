@@ -1,7 +1,7 @@
 import api from "./api";
 
 export interface Informacoes {
-  id: number;
+  id?: number;
   foto: string;
   nome: string;
   cargo: string;

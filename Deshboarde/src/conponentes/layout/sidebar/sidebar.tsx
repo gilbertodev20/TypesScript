@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './sidebar.module.css'
 import { useAuth } from "../../../contexts/AuthContext";
 
-const Sidebar = () => {
+const Sidebar : React.FC = () => {
     const { logout } = useAuth();
     return (
         <div className={styles.sidebar}>

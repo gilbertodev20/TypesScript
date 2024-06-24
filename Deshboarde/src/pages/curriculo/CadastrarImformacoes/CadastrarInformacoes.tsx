@@ -15,13 +15,14 @@ const CadastrarInformacoes: React.FC = () => {
     const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
 
     const initialValues: Informacoes = {
-        id: 1,
+        id: 0,
         foto: '',
         nome: '',
         cargo: '',
         resumo: '',
     };
     const validationSchema = Yup.object().shape({
+        id: Yup.number().required('campo obrigatório'),
         foto: Yup.string().required('campo obrigatório'),
         nome: Yup.string().required('campo obrigatório'),
         cargo: Yup.string().required('campo obrigatório'),

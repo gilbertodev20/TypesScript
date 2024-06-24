@@ -5,8 +5,8 @@ export interface Experiencia {
     titulo: string;
     descricao: string;
     tipo: string;
-    anoInicio: string | "";
-    anoFim: string | "";
+    anoInicio: number | "";
+    anoFim: number | "";
 }
 export const createExperiencia = async (experiencia: Experiencia): Promise<Experiencia> => {
     const response = await api.post<Experiencia>('/experiencias', experiencia);

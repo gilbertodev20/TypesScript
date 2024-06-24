@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import Input from "../../../conponentes/forms/input/index.tsx";
 import Textarea from "../../../conponentes/forms/textarea/textarea.tsx";
-import styles from './CadastrarExperiencia.module.css'
 import Select from '../../../conponentes/forms/select/index.ts';
 
 import { Experiencia, createOrUpdateExperiencia } from '../../../services/experienciaService.ts';
@@ -20,6 +19,7 @@ const CadastrarExperiencia: React.FC = () => {
     const experiencia = useLocation().state as Experiencia;
 
     const initialValues: Experiencia = {
+        id: 0,
         titulo: '',
         descricao: '',
         tipo: '',
@@ -27,6 +27,7 @@ const CadastrarExperiencia: React.FC = () => {
         anoFim: '',
     }
     const validationSchema = Yup.object().shape({
+        id: Yup.number().required('campo obrigatório'),
         titulo: Yup.string().required('campo obrigatório'),
         descricao: Yup.string().required('campo obrigatório'),
         tipo: Yup.string().required('campo obrigatório'),

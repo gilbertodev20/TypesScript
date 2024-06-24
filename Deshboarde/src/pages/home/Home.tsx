@@ -1,6 +1,7 @@
+import React from "react";
 
 import './Home.module.css'
-const Home = () => {
+const Home: React.FC = () => {
     return (
         <main>
             <h1>Bem-vindo ao nosso site!</h1>
