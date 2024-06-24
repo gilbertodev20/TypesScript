@@ -16,8 +16,8 @@ import Button from "../../../conponentes/common/Button/";
 import Title from "../../../conponentes/common/Title/Title.tsx";
 const CadastrarExperiencia: React.FC = () => {
     const navigate = useNavigate();
-    const lacation = useLocation();
-    const experiencia = lacation.state as Experiencia;
+    // const lacation = useLocation();
+    const experiencia = useLocation().state as Experiencia;
 
     const initialValues: Experiencia = {
         titulo: '',
@@ -56,7 +56,14 @@ const CadastrarExperiencia: React.FC = () => {
         >
             {({ touched, errors }) => (
                 <>
-                    <Title>Cadastrar de Experiência</Title>
+                    {
+                        !experiencia ?
+
+                            <Title>Cadastrar de Experiência</Title>
+                            :
+                            <Title>Atualizar de Experiência</Title>
+                      }
+
                     <Input
                         label="Titulo"
                         name="titulo"

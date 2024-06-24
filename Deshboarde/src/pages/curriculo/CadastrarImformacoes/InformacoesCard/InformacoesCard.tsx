@@ -9,7 +9,7 @@ interface InformacoesCardProps {
 }
 
 const InformacoesCard: React.FC<InformacoesCardProps> = ({ informacoes }) => {
-    const { foto, nome, cargo, resumo, tipo } = informacoes;
+    const { foto, nome, cargo, resumo } = informacoes;
 
     return (
       <div className={styles.card}>
@@ -18,7 +18,6 @@ const InformacoesCard: React.FC<InformacoesCardProps> = ({ informacoes }) => {
       <h3 className={styles.nome}>{nome}</h3>
       <p className={styles.cargo}>{cargo}</p>
       <p className={styles.resumo}>{resumo}</p>
-      <p className={styles.tipo}>{tipo}</p>
       </div>
       </div>
     );

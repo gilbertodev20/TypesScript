@@ -5,19 +5,19 @@ export interface Experiencia {
     titulo: string;
     descricao: string;
     tipo: string;
-    anoInicio: string;
-    anoFim: string;
+    anoInicio: string | "";
+    anoFim: string | "";
 }
 export const createExperiencia = async (experiencia: Experiencia): Promise<Experiencia> => {
-    const response = await api.post<Experiencia>('/experiencias/', experiencia);
+    const response = await api.post<Experiencia>('/experiencias', experiencia);
     return response.data;
 }
 
 export const getExperiencias = async (): Promise<Experiencia[]> => {
-    const response = await api.get<Experiencia[]>('/experiencias/');
+    const response = await api.get<Experiencia[]>('/experiencias');
     return response.data;
 }
-export const getExperienciaById = async (id: number) => {
+export const getExperienciaById = async (id: number) : Promise<Experiencia> => {
     const response = await api.get<Experiencia>(`/experiencias/${id}`);
     return response.data;
 }

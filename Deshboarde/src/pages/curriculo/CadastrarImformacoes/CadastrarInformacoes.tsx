@@ -9,7 +9,7 @@ import Textarea from '../../../conponentes/forms/textarea/textarea.tsx';
 import InformacoesCard from './InformacoesCard/InformacoesCard.tsx';
 import Button from '../../../conponentes/common/Button/Button.tsx';
 import Title from '../../../conponentes/common/Title/Title.tsx';
-import Form from '../../../conponentes/forms/Form/';
+import Forms from '../../../conponentes/forms/Form';
 const CadastrarInformacoes: React.FC = () => {
 
     const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
@@ -20,7 +20,6 @@ const CadastrarInformacoes: React.FC = () => {
         nome: '',
         cargo: '',
         resumo: '',
-        tipo: '',
     };
     const validationSchema = Yup.object().shape({
         foto: Yup.string().required('campo obrigatório'),
@@ -67,7 +66,7 @@ const CadastrarInformacoes: React.FC = () => {
     }
     return (
         <div className={styles.formWrapper}>
-            <Form
+            <Forms
                 initialValues={initialValues}
                 enableReiniciar={true}
                 validationSchema={validationSchema}
@@ -107,7 +106,7 @@ const CadastrarInformacoes: React.FC = () => {
                         <Button type='submit'>Salvar</Button>
                      </>
                 )}
-             </Form>
+             </Forms>
             {informacoes &&
                 Object.entries(informacoes).some(
                     ([key, value]) => key !== "id" && value.trim() !== "") &&(

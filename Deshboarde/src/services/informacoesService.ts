@@ -6,7 +6,6 @@ export interface Informacoes {
   nome: string;
   cargo: string;
   resumo: string;
-  tipo: string;
 }
 
 export async function updateInformacoes(informacoes: Informacoes): Promise<Informacoes> {
