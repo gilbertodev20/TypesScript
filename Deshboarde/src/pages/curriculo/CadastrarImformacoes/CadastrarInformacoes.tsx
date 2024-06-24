@@ -9,7 +9,7 @@ import Textarea from '../../../conponentes/forms/textarea/textarea.tsx';
 import InformacoesCard from './InformacoesCard/InformacoesCard.tsx';
 import Button from '../../../conponentes/common/Button/Button.tsx';
 import Title from '../../../conponentes/common/Title/Title.tsx';
-import Forms from '../../../conponentes/forms/Form';
+import Form from '../../../conponentes/forms/Form';
 const CadastrarInformacoes: React.FC = () => {
 
     const [informacoes, setInformacoes] = useState<Informacoes>({} as Informacoes);
@@ -66,7 +66,7 @@ const CadastrarInformacoes: React.FC = () => {
     }
     return (
         <div className={styles.formWrapper}>
-            <Forms
+            <Form
                 initialValues={initialValues}
                 enableReiniciar={true}
                 validationSchema={validationSchema}
@@ -106,7 +106,7 @@ const CadastrarInformacoes: React.FC = () => {
                         <Button type='submit'>Salvar</Button>
                      </>
                 )}
-             </Forms>
+             </Form>
             {informacoes &&
                 Object.entries(informacoes).some(
                     ([key, value]) => key !== "id" && value.trim() !== "") &&(
