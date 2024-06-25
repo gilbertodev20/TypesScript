@@ -16,39 +16,7 @@
     }
   ],
   "experiencias": [
-    {
-      "id": "8f68",
-      "titulo": "Gilberto Soares",
-      "descricao": "Gilberto soares desenvolvedor de software ",
-      "tipo": "profissional",
-      "anoInicio": "2024",
-      "anoFim": "2025"
-    }
+ 
   ],
-  "portfolio": [
-    {
-      "id": "2399",
-      "link": "22222222222222244444444444434343",
-      "image": "22222222222222",
-      "title": "22222222222222"
-    },
-    {
-      "id": "a8cd",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "segunda imagem"
-    },
-    {
-      "id": "e57a",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "segunda imagem"
-    },
-    {
-      "id": "f3c0",
-      "link": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "image": "https://i.ibb.co/fpYMrwD/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
-      "title": "segunda imagem"
-    }
-  ]
+  "portfolio": []
 }

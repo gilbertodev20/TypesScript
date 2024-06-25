@@ -15,11 +15,11 @@ import Button from "../../../conponentes/common/Button/";
 import Title from "../../../conponentes/common/Title/Title.tsx";
 const CadastrarExperiencia: React.FC = () => {
     const navigate = useNavigate();
-    // const lacation = useLocation();
-    const experiencia = useLocation().state as Experiencia;
+    const lacation = useLocation();
+    const experiencia = lacation.state?.experiencia || null;
 
     const initialValues: Experiencia = {
-        id: 0,
+        id: '',
         titulo: '',
         descricao: '',
         tipo: '',
@@ -27,7 +27,7 @@ const CadastrarExperiencia: React.FC = () => {
         anoFim: '',
     }
     const validationSchema = Yup.object().shape({
-        id: Yup.number().required('campo obrigatório'),
+        id: Yup.string().required('campo obrigatório'),
         titulo: Yup.string().required('campo obrigatório'),
         descricao: Yup.string().required('campo obrigatório'),
         tipo: Yup.string().required('campo obrigatório'),
