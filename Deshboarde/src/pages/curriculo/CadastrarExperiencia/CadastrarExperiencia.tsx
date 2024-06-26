@@ -1,7 +1,6 @@
 import React from "react";
 
 import * as Yup from 'yup';
-// import { Formik, Form } from 'formik';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import Input from "../../../conponentes/forms/input/index.tsx";
@@ -15,11 +14,11 @@ import Button from "../../../conponentes/common/Button/";
 import Title from "../../../conponentes/common/Title/Title.tsx";
 const CadastrarExperiencia: React.FC = () => {
     const navigate = useNavigate();
-    const lacation = useLocation();
-    const experiencia = lacation.state?.experiencia || null;
+    const location = useLocation();
+    const experiencia = location.state as Experiencia
 
     const initialValues: Experiencia = {
-        id: '',
+        id: '0',
         titulo: '',
         descricao: '',
         tipo: '',
@@ -27,7 +26,7 @@ const CadastrarExperiencia: React.FC = () => {
         anoFim: '',
     }
     const validationSchema = Yup.object().shape({
-        id: Yup.string().required('campo obrigatório'),
+        id: Yup.string(),
         titulo: Yup.string().required('campo obrigatório'),
         descricao: Yup.string().required('campo obrigatório'),
         tipo: Yup.string().required('campo obrigatório'),
@@ -63,7 +62,7 @@ const CadastrarExperiencia: React.FC = () => {
                             <Title>Cadastrar de Experiência</Title>
                             :
                             <Title>Atualizar de Experiência</Title>
-                      }
+                    }
 
                     <Input
                         label="Titulo"
@@ -94,9 +93,10 @@ const CadastrarExperiencia: React.FC = () => {
                         label="Descricão"
                         name="descricao"
                         errors={errors.descricao}
-                        touched={touched.descricao} />
+                        touched={touched.descricao}
+                    />
 
-                    <Button type="submit" >Salvar</Button>
+                    <Button type='submit'>Salvar</Button>
                 </>
             )}
         </Form>

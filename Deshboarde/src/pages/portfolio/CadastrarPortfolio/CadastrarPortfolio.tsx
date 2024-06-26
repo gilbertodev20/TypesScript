@@ -19,12 +19,13 @@ const CadastrarPortfolio: React.FC = () => {
     const portfolio = lacation.state as Portfolio;
 
     const initialValues: Portfolio = {
+        id: "0",
         link: "",
         image: "",
         title: "",
     }
     const validationSchema = Yup.object().shape({
-        id: Yup.number().required('campo obrigatório'),
+        id: Yup.string(),
         link: Yup.string()
         .required("campo obrigatório"),
         image: Yup.string()

@@ -9,32 +9,27 @@ import { Formik, FormikProps, FormikValues, Form as FormikForm, FormikHelpers } 
 interface FormProps<T> {
     initialValues: T
     validationSchema: Yup.ObjectSchema<Partial<T>>
-    onSubmit: (values: T, formikHelpers: FormikHelpers <T>) => void | Promise<void>
+    onSubmit: (values: T, formikHelpers: FormikHelpers<T>) => void | Promise<void>
     children: (formikProps: FormikProps<T>) => React.ReactNode
     enableReiniciar?: boolean;
 }
 
 
-const Form = <T extends FormikValues>({ initialValues,  validationSchema, onSubmit, children }: FormProps<T>) => {
+const Form = <T extends FormikValues>({ initialValues, validationSchema, onSubmit, children }: FormProps<T>) => {
     return (
         <div className={styles.formWrapper}>
-        
-
-            <Formik 
+            <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 enableReiniciar={true}
                 onSubmit={onSubmit}
-                >
+            >
                 {(formikProps) => (
                     <FormikForm className={styles.form}>
                         {children(formikProps)}
                     </FormikForm>
                 )}
             </Formik>
-
-            
-                
         </div>
     )
 }

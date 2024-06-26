@@ -33,12 +33,12 @@ export const updateExperiencia = async (experiencia: Experiencia): Promise<Exper
     const response = await api.put<Experiencia>(`/experiencias/${experiencia.id}`, experiencia);
     return response.data;
 }
-export const deleteExperiencia = async (id: number | undefined): Promise<Experiencia> => {
+export const deleteExperiencia = async (id: string | undefined): Promise<Experiencia> => {
     const response = await api.delete<Experiencia>(`/experiencias/${id}`);
     return response.data;
 }
 export const createOrUpdateExperiencia = async (experiencia: Experiencia): Promise<Experiencia> => {
-    if (experiencia.id !== "" ) {
+    if (experiencia.id === '0')  {
         return createExperiencia(experiencia);
     } else {
         return updateExperiencia(experiencia);
