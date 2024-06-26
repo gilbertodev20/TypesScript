@@ -17,7 +17,7 @@ export const getPortfolio = async (): Promise<Portfolio[]> => {
     const response = await api.get<Portfolio[]>('/portfolio/');
     return response.data;
 }
-export const deletePortfolio = async (id: number | undefined): Promise<Portfolio> => { 
+export const deletePortfolio = async (id: string | undefined): Promise<Portfolio> => { 
     const response = await api.delete<Portfolio>(`/portfolio/${id}`);
     return response.data;
 }
