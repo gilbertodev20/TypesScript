@@ -1,0 +1,44 @@
+{
+  "usuario": [
+    {
+      "id": "0",
+      "email": "giilneto93@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "informacoes": [
+    {
+      "id": "1",
+      "foto": "https://i.ibb.co/0ChXc00/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
+      "nome": "Gilberto",
+      "cargo": "PROGRAMADOR",
+      "resumo": "dddd"
+    }
+  ],
+  "experiencias": [
+    {
+      "id": "1",
+      "titulo": "gilbertodfeffdcseacdxztggttttttttttttttdecxcxxxxxxxxxxxxxxxx",
+      "descricao": "r3",
+      "tipo": "academico",
+      "anoInicio": "123423424",
+      "anoFim": "2030123"
+    },
+    {
+      "id": "2",
+      "titulo": "gilbertodfeffdcseacdxztggttttttttttttttdecxcxxxxxxxxxxxxxxxx",
+      "descricao": "r3",
+      "tipo": "academico",
+      "anoInicio": "1234",
+      "anoFim": "20303"
+    }
+  ],
+  "portfolio": [
+    {
+      "id": "1",
+      "link": "https://i.ibb.co/0ChXc00/Whats-App-Image-2024-06-11-at-16-48-15.jpg",
+      "image": "rewrwe",
+      "title": "wer"
+    }
+  ]
+}
